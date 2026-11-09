@@ -6,4 +6,4 @@ scikit-learn
 trimesh
 vedo
 vtk
-libigl
+libigl==2.5.0
