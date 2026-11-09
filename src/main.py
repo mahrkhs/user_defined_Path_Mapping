@@ -1,6 +1,6 @@
 import trimesh
 import numpy as np
-from src.mapping import TrajectoryGeneration
+from mapping import TrajectoryGeneration
 
 mesh=trimesh.load('test_meshes/lilium.obj')
 pathType='MapSquareWave'

@@ -1,7 +1,11 @@
 from shapely import LineString, Polygon
 import numpy as np
-from src.mapping import MeshFlattener, boundaryDectection3DPoints, unitSquare, PatternsForUnitSquare, contourSegmentDetection, extractPoints, mapping2DUsingDistanceIntpl, triangularInterpolation
-
+from meshHandler import MeshFlattener
+from boundaryDetection import boundaryDectection3DPoints, unitSquare, extractPoints
+from coonPatch import mapping2DUsingDistanceIntpl
+from patterns import PatternsForUnitSquare
+from contourSegments import contourSegmentDetection
+from interpolation import triangularInterpolation 
 class TrajectoryGeneration():
     def __init__(self,mesh,pathType,parameters):
         self.mesh=mesh #trimesh.load(mesh)
