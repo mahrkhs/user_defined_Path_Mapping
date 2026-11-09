@@ -1,0 +1,19 @@
+    def mappingFromSquare(self):
+        numOfSamples = 100  #samples used for each boundary segment in mapping process.
+        xmin, xmax, ymin, ymax = 0, 1, 0, 1
+        _, squareSegments = unitSquare(xmin, xmax, ymin, ymax)
+        squareSegments = [extractPoints(S, (LineString(S).length) / numOfSamples) for S in squareSegments]
+        patterns = PatternsForUnitSquare(xmin, xmax, ymin, ymax)
+        #d_boundary = extractPoints(self.d_boundary, 0.02)
+        canalyzer = contourSegmentDetection(self.points_2d,self.outerBoundary, num_corners=4, curvature_threshold=15, min_distance=0.05)
+        corners, segments = canalyzer.run()
+        self.corners = corners
+        tContour, rContour, bContour, lContour = canalyzer.classifySegments()
+        # segments=[segments['top'],segments['right'],segments['bottom'],segments['left']]
+        # self.corners=np.array([tContour[0],rContour[0],bContour[0],lContour[0]])
+        contours = [tContour, rContour, bContour, lContour]
+        segments=[tContour, np.flipud(rContour), np.flipud(bContour), lContour]
+        # segments = [tContour, rContour, bContour, lContour]
+        segments=[extractPoints(s, (LineString(s).length) / numOfSamples) for s in segments]
+        contours = [extractPoints(C, (LineString(C).length) / numOfSamples) for C in contours]
+        return patterns, squareSegments, contours, self.corners,segments
