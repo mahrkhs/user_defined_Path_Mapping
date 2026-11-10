@@ -1,7 +1,5 @@
 A Python implementation of geometry-aware trajectory generation by mapping predefined 2D patterns onto 3D triangular mesh surfaces using As-Rigid-As-Possible (ARAP) parameterization.
 
-Overview
-
 This project implements a framework for transferring predefined 2D trajectory patterns onto non-planar 3D surfaces.
 
 The approach first parameterizes a 3D triangular mesh into a 2D domain using ARAP. A desired trajectory is generated inside a unit square and mapped onto the parameterized surface through boundary correspondence and Coons patch interpolation. The resulting 2D points are then reconstructed onto the original 3D surface using barycentric coordinates. The framework enables geometry-aware path generation for robotic applications involving surface treatment, robotic drawing, inspection, painting and polishing.
@@ -9,7 +7,6 @@ The approach first parameterizes a 3D triangular mesh into a 2D domain using ARA
 <img width="1790" height="568" alt="image" src="https://github.com/user-attachments/assets/0f9c5201-2cbb-4f23-be4a-4bf78e00cda5" />
 
 
-Methodology
 
 The framework consists of the following stages:
 
