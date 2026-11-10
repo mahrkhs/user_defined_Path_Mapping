@@ -1,3 +1,4 @@
+import numpy as np
 class triangularInterpolation:
     """ Given information of 3D geometry(v,vt,f)according to obj file and samplepoints,
     it gives 2d and 3d scan points suitable for that specific geometry.faces should contain both information of 3d and 2d faces"""

@@ -51,7 +51,7 @@ class TrajectoryGeneration():
         self.points_2d=uv
         # self.mesh.vertices=self.normalize_vertices(self.mesh.vertices,target_range=[0,100])
         # self.points_2d=self.normalize_vertices(self.points_2d,target_range=[0,100])
-        self.outerBoundary,self.innerBoundary,self.boundary3Dloop=boundaryDectection3DPoints(self.mesh,self.points_2d)
+        self.outerBoundary,self.boundary3Dloop=boundaryDectection3DPoints(self.mesh,self.points_2d)
 
         print('parameterization done.Boundary')    
 
@@ -76,8 +76,6 @@ class TrajectoryGeneration():
             return patterns, squareSegments, contours, self.corners,segments
     
     def computeTrajectory(self):
-        # path_points = []
-        # spiral_path = []
 
         if self.pathType == "MapCircularSpiral":
                 self.parameterizeAndExtractBoundary()

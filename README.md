@@ -1,27 +1,58 @@
-A Python implementation of geometry-aware trajectory generation by mapping predefined 2D patterns onto 3D triangular mesh surfaces using As-Rigid-As-Possible (ARAP) parameterization.
+# Parameterization-Based 2D-to-3D Trajectory Mapping
 
-Overview
+A Python implementation for transferring predefined 2D path patterns onto 3D triangular mesh surfaces using **As-Rigid-As-Possible (ARAP) parameterization**.
 
-This project implements a framework for transferring predefined 2D trajectory patterns onto non-planar 3D surfaces.
+## Overview
 
-The approach first parameterizes a 3D triangular mesh into a 2D domain using ARAP. A desired trajectory is generated inside a unit square and mapped onto the parameterized surface through boundary correspondence and Coons patch interpolation. The resulting 2D points are then reconstructed onto the original 3D surface using barycentric coordinates.
+The project maps trajectories defined in a normalized 2D unit square onto non-planar 3D surfaces.
 
-The framework enables geometry-aware path generation for robotic applications involving surface treatment, robotic drawing, inspection, painting and polishing.
+The input mesh is first parameterized into a 2D domain using ARAP. A trajectory generated in the unit square is then transferred to the parameterized surface through boundary correspondence and Coons patch interpolation. Finally, barycentric coordinates are used to reconstruct the mapped trajectory on the original 3D mesh.
 
-Methodology
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/0f9c5201-2cbb-4f23-be4a-4bf78e00cda5" width="100%" alt="2D-to-3D trajectory mapping"/>
+</p>
 
-The framework consists of the following stages:
+## Method
 
-Mesh preprocessing: Clean the input triangular mesh, handle problematic faces and prepare its topology for parameterization.
+1. **Mesh preprocessing:** Prepare the triangular mesh for parameterization.
+2. **ARAP parameterization:** Flatten the 3D mesh into a 2D UV domain using harmonic initialization and ARAP optimization.
+3. **Pattern generation:** Generate a predefined or user-defined trajectory inside the unit square.
+4. **Boundary correspondence:** Divide the boundaries of the unit square and parameterized surface into four corresponding segments.
+5. **Pattern transfer:** Map the trajectory using Coons patch interpolation.
+6. **3D reconstruction:** Recover the mapped points on the original mesh using barycentric coordinates.
 
-ARAP parameterization: Flatten the 3D mesh into a 2D UV domain using harmonic initialization followed by ARAP optimization.
+## Project Structure
 
-2D pattern generation: Generate predefined or user-defined trajectory patterns within a normalized unit square.
+```text
+user_defined_Path_Mapping/
+│
+├── meshes/                  # Input 3D mesh models
+│
+├── src/
+│   ├── __init__.py
+│   ├── main.py              # Main execution script
+│   ├── meshHandler.py       # Mesh loading and preprocessing
+│   ├── boundaryDetection.py # Mesh boundary detection
+│   ├── contourSegments.py   # Boundary segmentation
+│   ├── coonPatch.py         # Coons patch interpolation
+│   ├── interpolation.py     # Geometric interpolation
+│   ├── mapping.py           # 2D-to-3D pattern mapping
+│   ├── patterns.py          # 2D trajectory generation
+│   └── plot.py              # plot functions              
+│
+├── .gitignore
+├── README.md
+└── requirements.txt
+```
 
-Boundary correspondence: Extract and segment the boundaries of the unit square and parameterized surface into four corresponding segments.
+## Environment
 
-Pattern mapping: Transfer the 2D pattern onto the parameterized surface using boundary correspondence and Coons patch interpolation.
+Currently developed and tested with Python 3.8.10, using NumPy 1.24.4, SciPy 1.10.1, libigl 2.5.0, and Trimesh 3.23.5. Other package versions may also work but have not been tested.
 
-3D reconstruction: Identify the corresponding UV triangles and reconstruct the mapped points on the original 3D mesh using barycentric coordinates.
+## Reference
 
-Visualization: Display the generated trajectory over the original 3D surface.
+This implementation is based on the following published work:
+
+M. Mahrukh, G. Palli, M. Gambazza, and C. Melchiorri, "Robotic Path Projection from 2D Square to 3D Single Patch Surfaces Using ARAP Parameterization," *2025 25th International Conference on Control, Automation and Systems (ICCAS)*, pp. 321–326, 2025.
+
+[https://doi.org/10.23919/ICCAS66577.2025.11301316](https://doi.org/10.23919/ICCAS66577.2025.11301316)
