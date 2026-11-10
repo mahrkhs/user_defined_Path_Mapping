@@ -44,9 +44,9 @@ user_defined_Path_Mapping/
 └── requirements.txt
 ```
 
-## Uses
+## Environment
 
-Python · NumPy · SciPy · libigl · Trimesh · Shapely · Vedo · VTK
+Currently developed and tested with Python 3.8.10, using NumPy 1.24.4, SciPy 1.10.1, libigl 2.5.0, and Trimesh 3.23.5. Other package versions may also work but have not been tested.
 
 ## Reference
 
