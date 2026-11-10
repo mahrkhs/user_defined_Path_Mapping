@@ -5,7 +5,6 @@ A Python implementation for transferring predefined 2D path patterns onto 3D tri
 ## Overview
 
 The project maps trajectories defined in a normalized 2D unit square onto non-planar 3D surfaces.
-
 The input mesh is first parameterized into a 2D domain using ARAP. A trajectory generated in the unit square is then transferred to the parameterized surface through boundary correspondence and Coons patch interpolation. Finally, barycentric coordinates are used to reconstruct the mapped trajectory on the original 3D mesh.
 
 
