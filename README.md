@@ -8,9 +8,6 @@ The project maps trajectories defined in a normalized 2D unit square onto non-pl
 
 The input mesh is first parameterized into a 2D domain using ARAP. A trajectory generated in the unit square is then transferred to the parameterized surface through boundary correspondence and Coons patch interpolation. Finally, barycentric coordinates are used to reconstruct the mapped trajectory on the original 3D mesh.
 
-<p align="center">
-  <img src="https://github.com/user-attachments/assets/0f9c5201-2cbb-4f23-be4a-4bf78e00cda5" width="100%" alt="2D-to-3D trajectory mapping"/>
-</p>
 
 ## Method
 
@@ -20,6 +17,11 @@ The input mesh is first parameterized into a 2D domain using ARAP. A trajectory 
 4. **Boundary correspondence:** Divide the boundaries of the unit square and parameterized surface into four corresponding segments.
 5. **Pattern transfer:** Map the trajectory using Coons patch interpolation.
 6. **3D reconstruction:** Recover the mapped points on the original mesh using barycentric coordinates.
+
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/0f9c5201-2cbb-4f23-be4a-4bf78e00cda5" width="100%" alt="2D-to-3D trajectory mapping"/>
+</p>
 
 ## Project Structure
 
