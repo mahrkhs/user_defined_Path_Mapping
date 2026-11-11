@@ -1,6 +1,6 @@
 # Parameterization-Based 2D-to-3D Trajectory Mapping
 
-A Python implementation for transferring predefined 2D path patterns onto 3D triangular mesh surfaces using **As-Rigid-As-Possible (ARAP) parameterization**.
+A Python implementation for transferring predefined 2D path patterns onto 3D triangular mesh surfaces using **As-Rigid-As-Possible parameterization**.
 
 ## Overview
 
@@ -54,6 +54,6 @@ Currently developed and tested with Python 3.8.10, using NumPy 1.24.4, SciPy 1.1
 
 This implementation is based on the following published work:
 
-M. Mahrukh, G. Palli, M. Gambazza, and C. Melchiorri, "Robotic Path Projection from 2D Square to 3D Single Patch Surfaces Using ARAP Parameterization," *2025 25th International Conference on Control, Automation and Systems (ICCAS)*, pp. 321–326, 2025.
+"Robotic Path Projection from 2D Square to 3D Single Patch Surfaces Using ARAP Parameterization," *25th International Conference on Control, Automation and Systems (ICCAS)*, 2025.
 
 [https://doi.org/10.23919/ICCAS66577.2025.11301316](https://doi.org/10.23919/ICCAS66577.2025.11301316)
